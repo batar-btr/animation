@@ -6,8 +6,8 @@
         h = canvas.height = window.innerHeight,
         options = {
             particleRadius: 10,
-            defaultSpeed: 0.1,
-            addedSpeed: 0.2,
+            defaultSpeed: 0.9,
+            addedSpeed: 0.9,
             lineWidth: 5,
             particlesAmount: 600,
             backGroundColor: 'white',
@@ -23,8 +23,8 @@
         this.x = options.particleRadius + (Math.random() * (w-options.particleRadius*2));
         this.y = options.particleRadius + (Math.random() * (h-options.particleRadius*2));
         this.speed = options.defaultSpeed + Math.random() * options.addedSpeed;
-        this.color = grayScaleRandom();
-        this.radius = options.particleRadius;
+        this.color = randomColor();
+        this.radius = options.particleRadius* Math.random();
         this.directionAngle = Math.floor(Math.random() * 360);
         this.direction = {
             x: Math.cos(this.directionAngle) * this.speed,
@@ -64,7 +64,7 @@
         this.y += this.direction.y;
 
         if(checkDistance(this.x, this.y, mouseCoords.x, mouseCoords.y) < 100) {
-            this.radius < 50 ? this.radius += 1 : false ;
+            this.radius < 50 ? this.radius += 1 : false ;//!!!!!!!!!!!!!!!!!!!!!!!
         } else if(this.radius > options.particleRadius) {
             this.radius -=1;
         }
@@ -98,7 +98,11 @@
     canvas.addEventListener('mousemove', function(e){
         mouseCoords.x = e.pageX;
         mouseCoords.y = e.pageY;
-        console.log(mouseCoords);
+        // console.log(mouseCoords);
+    });
+
+    canvas.addEventListener('click', function(e){
+        console.log(e);
     });
 
 

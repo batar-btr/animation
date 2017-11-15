@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $('#fullpage').fullpage({
-        anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage', '5thPage'],
+        anchors: ['firstPage', 'secondPage', '3rdPage', '4thPage', '5thPage', '6thPage', '7thPage'],
         menu: '#menu',
         sectionsColor: ['#252525', '#2A9D8F', '#E9C46A', '#F4A261']
     });

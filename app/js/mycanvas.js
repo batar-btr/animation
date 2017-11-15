@@ -43,10 +43,10 @@
             particles.push(new Particle());
         }
     };
-    function communicateParticles(currentParticle,allParticles){
-        for(var i = 0; i < allParticles.length; i++) {
+    function communicateParticles(currentParticle, allParticles) {
+        for (var i = 0; i < allParticles.length; i++) {
             var distance = checkDistance(currentParticle.x, currentParticle.y, allParticles[i].x, allParticles[i].y);
-            var opacity = 1 - distance/options.communicateRadius;
+            var opacity = 1 - distance / options.communicateRadius;
             // console.log(distance, opacity);
             if (opacity > 0) {
                 ctx.lineWidth = options.lineWidth;
@@ -57,7 +57,7 @@
                 ctx.closePath();
                 ctx.stroke();
             }
-        }        
+        }
     };
     Particle.prototype.update = function () {
         this.checkCollision();
@@ -100,15 +100,17 @@
     };
     window.requestAnimationFrame(loop);
 
-    canvas.addEventListener('click', function(e){
+    canvas.addEventListener('click', function (e) {
         particles.push(new Particle(e.pageX, e.pageY));
         // console.log("clicked");
     });
-    canvas.addEventListener('contextmenu', function(e){
+    canvas.addEventListener('contextmenu', function (e) {
         e.preventDefault();
-        particles.splice(particles.length-1, 1);
+        particles.splice(particles.length - 1, 1);
     });
     // console.log(canvas, ctx);
+
+
 })();
 
 
